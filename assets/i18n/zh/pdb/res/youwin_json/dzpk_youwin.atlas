@@ -1,0 +1,41 @@
+
+dzpk_youwin.png
+size: 734,732
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+dzpk_youwindaosui1
+  rotate: true
+  xy: 332, 528
+  size: 70, 130
+  orig: 72, 132
+  offset: 1, 1
+  index: -1
+dzpk_youwingd
+  rotate: false
+  xy: 2, 118
+  size: 248, 236
+  orig: 256, 256
+  offset: 0, 20
+  index: -1
+dzpk_youwings
+  rotate: false
+  xy: 2, 600
+  size: 730, 130
+  orig: 730, 130
+  offset: 0, 0
+  index: -1
+dzpk_youwintext
+  rotate: false
+  xy: 2, 472
+  size: 328, 126
+  orig: 330, 128
+  offset: 1, 1
+  index: -1
+dzpk_youwintextgd
+  rotate: false
+  xy: 2, 356
+  size: 316, 114
+  orig: 318, 116
+  offset: 1, 1
+  index: -1
