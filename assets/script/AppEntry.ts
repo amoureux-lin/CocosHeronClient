@@ -15,7 +15,6 @@ export class AppEntry extends Entry {
     onLoad(): void {
         console.log('AppEntry onload');
         console.log("查询参数：",app.query.data)
-        
     }
 }
 

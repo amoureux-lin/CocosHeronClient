@@ -1,3 +1,4 @@
+import { CommonEvent } from "db://assets/script/common/config/CommonEvent";
 
 export default class PdbLogic{
 
@@ -8,32 +9,47 @@ export default class PdbLogic{
     }
 
     onload() {
-        this.onMsg();
+        this.resgisterEvent();
     }
 
     destroy(){
-        this.offMsg();
-    }
-
-    onMsg(){
-        app.message.on("test",this)
-    }
-
-    offMsg(){
-        app.message.off("test",this)
+        this.removeEvent();
     }
 
     protected init(){
 
     }
 
+    resgisterEvent() {
+        //注册游戏事件
+        app.message.on(CommonEvent.GAME_SHOW,this);
+        app.message.on(CommonEvent.GAME_HIDE, this);
+        app.message.on("test",this)
+    }
 
-    onHandler(msg:string,event:{ [key:string]:any }){
-        switch(msg){
+    removeEvent() {
+        //移除游戏事件
+        app.message.off(CommonEvent.GAME_SHOW, this);
+        app.message.off(CommonEvent.GAME_HIDE, this);
+        app.message.off("test",this)
+    }
+
+    onHandler(event: string, ...args: any[]) {
+        switch (event) {
+            case CommonEvent.GAME_SHOW:
+                console.log("游戏进入前台");
+                break;
+            case CommonEvent.GAME_HIDE:
+                console.log("游戏进入后台");
+                break;
             case "test":
                 console.log('接收到消息test');
+            break;
+            default:
                 break;
         }
     }
+
+        
 
 }

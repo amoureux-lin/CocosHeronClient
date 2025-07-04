@@ -1,6 +1,5 @@
 import { _decorator, Component, Node } from 'cc';
 import { BaseLoading } from 'db://assets/script/common/loading/BaseLoading';
-import { AsyncQueue, NextFunction } from 'db://framework/core/Framework';
 const { ccclass, property } = _decorator;
 
 @ccclass('PdbLoading')
@@ -20,7 +19,7 @@ export class PdbLoading extends BaseLoading {
 
     //加载音乐
     playBg(){
-        app.audio.playBundleMusic('bg',true);
+        app.audio.playBundleMusic('bgm',true);
     }
 
     //资源加载完成
