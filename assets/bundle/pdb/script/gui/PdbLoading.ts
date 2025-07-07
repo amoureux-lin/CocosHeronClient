@@ -1,5 +1,6 @@
-import { _decorator, Component, Node } from 'cc';
+import { _decorator} from 'cc';
 import { BaseLoading } from 'db://assets/script/common/loading/BaseLoading';
+import { PdbEntry } from '../PdbEntry';
 const { ccclass, property } = _decorator;
 
 @ccclass('PdbLoading')
@@ -13,7 +14,8 @@ export class PdbLoading extends BaseLoading {
     // 游戏内容加载进度占比
     guiRate:number = 0.2;
 
-    onload() {
+    onLoad() {
+        new PdbEntry();
         super.onLoad();
     }
 

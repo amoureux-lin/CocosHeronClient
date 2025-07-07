@@ -1,5 +1,6 @@
-import { _decorator, Component, Node } from 'cc';
+import { _decorator } from 'cc';
 import { BaseLoading } from 'db://assets/script/common/loading/BaseLoading';
+import { FruitEntry } from '../FruitEntry';
 const { ccclass, property } = _decorator;
 
 @ccclass('FruitLoading')
@@ -13,13 +14,14 @@ export class FruitLoading extends BaseLoading {
     // 游戏内容加载进度占比
     guiRate:number = 0.2;
 
-    onload() {
+    onLoad() {
+        new FruitEntry();
         super.onLoad();
     }
 
     //加载音乐
     playBg(){
-        // app.audio.playBundleMusic('bgm',true);
+        app.audio.playBundleMusic('bgm',true);
     }
 
     //资源加载完成
