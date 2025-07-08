@@ -1,11 +1,11 @@
 import { _decorator, Component, Node, Toggle } from 'cc';
-import { AgoraSDK } from 'db://assets/script/libs/AgoraSDK';
+import AgoraSDK from 'db://assets/script/libs/AforaSDK';
 const { ccclass, property } = _decorator;
 
 @ccclass('PdbGame')
 export class PdbGame extends Component{
 
-    agoraSDK:AgoraSDK = AgoraSDK.instance;
+    agoraSDK:AgoraSDK;
 
     @property(Toggle)
     toggleMusic: Toggle = null!;
@@ -18,14 +18,13 @@ export class PdbGame extends Component{
 
         this.toggleMusic.isChecked = app.audio.switchMusic;
 
-        // this.agoraSDK = new AgoraSDK({
-        //     appId:"b4a9b4aba68e467ab4008c29a0709d26",
-        //     channel:"cocos",
-        //     token:"07eJxTYFC9ULpM/nu2/rF0nZtiLaLJa/ZMd17Yaf2D/YnS2h3n858qMCSZJFoCcVKimUWqiZl5YpKJgYFFspFlooG5gWWKkdnlxuyMhkBGhrkC/xkYoRDEZ2VIzk/OL2ZgAACgdyDI",
-        //     uid:0,
-        // })
+        this.agoraSDK = new AgoraSDK({
+            appId:"5e045e02a8c14a99a590e28d8e86a2e8",
+            channel:"123",
+            token:"007eJxTYPij0y/zLbZY4Gzs1svf2eV5w3JYl1yzVrjHK96ydzdHnq0Cg2mqgQkQGyVaJBuaJFpaJppaGqQaWaRYpFqYJRqlWsSU5WQ0BDIynPK3Y2CEQhCfmcHQyJiBAQCRkxvs",
+            uid:0,
+        })
 
-        this.agoraSDK.init('5e045e02a8c14a99a590e28d8e86a2e8','123','007eJxTYJiesDZHbqq3nLtFiPPncxtmsvaLJUh9WKkcuYtLt2a6r6ACg2mqgQkQGyVaJBuaJFpaJppaGqQaWaRYpFqYJRqlWlR0ZGc0BDIyZCTcY2VkgEAQn5nB0MiYgQEAStgbgg==')
     }
 
     clickMusic() {

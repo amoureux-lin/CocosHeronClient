@@ -2,7 +2,10 @@ import AgoraRTC, {
     IAgoraRTCClient,
     IMicrophoneAudioTrack,
     IAgoraRTCRemoteUser,
-    UID
+    UID,
+    ConnectionState,
+    ConnectionDisconnectedReason,
+    NetworkQuality
 } from "agora-rtc-sdk-ng";
 
 interface AgoraConfig {
@@ -45,8 +48,23 @@ export default class AgoraSDK {
         if (!this.client) return;
 
         // 监听远程用户发布音频流事件
-        this.client.on("user-published", async (user: IAgoraRTCRemoteUser, mediaType: "audio" | "video") => {
-            try {
+        this.client.on("user-published", this.userPublished);
+
+        // 监听远程用户取消发布事件
+        this.client.on("user-unpublished", this.userUnPublished);
+        this.client.on("connection-state-change",this.connectionStateChange);
+        //用户加入
+        this.client.on("user-joined",this.userJoin);
+        ////远程用户离线时
+        this.client.on("user-left",this.userLeft);
+        //网络质量
+        this.client.on("network-quality",this.networkQuality);
+    }
+
+
+    //用户发布音频流事件
+    private async userPublished(user: IAgoraRTCRemoteUser, mediaType: "audio" | "video"){
+        try {
                 // 订阅远程用户的媒体流
                 await this.client!.subscribe(user, mediaType);
                 console.log("subscribe success");
@@ -63,14 +81,32 @@ export default class AgoraSDK {
             } catch (error) {
                 console.error("Failed to subscribe to remote user:", error);
             }
-        });
-
-        // 监听远程用户取消发布事件
-        this.client.on("user-unpublished", async (user: IAgoraRTCRemoteUser) => {
-            console.log("Remote user unpublished:", user.uid);
-            // 可以在这里处理远程用户离开的逻辑
-        });
     }
+
+    //用户取消发布音频流事件
+    private async userUnPublished(user: IAgoraRTCRemoteUser){
+        // 可以在这里处理远程用户离开的逻辑
+    }
+
+    //链接状态改变
+    private async connectionStateChange(curState: ConnectionState, revState: ConnectionState, reason?: ConnectionDisconnectedReason){
+        
+    }
+
+    //用户加入
+    private async userJoin(user: IAgoraRTCRemoteUser){
+        // 可以在这里处理用户加入的逻辑
+    }
+
+    //远程用户离线时
+    private async userLeft(user: IAgoraRTCRemoteUser, reason: string){
+        
+    }
+    //网络质量
+    private async networkQuality(stats: NetworkQuality){
+        
+    }
+    
 
     /**
      * 创建本地音频轨道
