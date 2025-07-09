@@ -20,10 +20,10 @@ export class PdbGame extends Component{
         this.toggleMusic.isChecked = app.audio.switchMusic;
 
         this.agoraSDK = new AgoraSDK({
-            appId:"5e045e02a8c14a99a590e28d8e86a2e8",
+            appId:"4d5b5a3bd6634c489bb36018e5d1a324",
             channel:"123",
-            token:"007eJxTYPij0y/zLbZY4Gzs1svf2eV5w3JYl1yzVrjHK96ydzdHnq0Cg2mqgQkQGyVaJBuaJFpaJppaGqQaWaRYpFqYJRqlWsSU5WQ0BDIynPK3Y2CEQhCfmcHQyJiBAQCRkxvs",
-            uid:0,
+            token:"007eJxTYOiQm771Vw6XPfMTg+OBl7jrV5ooqIXvLPAX13b+8W/v3nUKDCYppkmmicZJKWZmxibJJhaWSUnGZgaGFqmmKYaJxkYmukJ5GQ2BjAw1Sx1YGRkgEMRnZjA0MmZgAACzUxxG",
+            uid:1230,
         });
 
         // 获取一致的设备指纹
