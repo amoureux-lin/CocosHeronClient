@@ -32,21 +32,9 @@ export class PdbGame extends Component{
 
     async getUUID(){
         try {
-            // 获取稳定的Canvas指纹
-            const canvasFingerprint = await app.frameWorkUtil.default.getCanvasFingerprint();
-            console.log('Canvas指纹:', canvasFingerprint);
-
             // 获取完整指纹
-            const completeFingerprint = await app.frameWorkUtil.default.getCompleteFingerprint();
+            const completeFingerprint = await app.frameWorkUtil.default.getFingerprint();
             console.log('完整指纹:', completeFingerprint);
-
-            // 获取详细指纹摘要
-            const summary = await app.frameWorkUtil.default.getFingerprintSummary();
-            console.log('指纹摘要:', summary);
-
-            // 验证一致性
-            const isConsistent = await app.frameWorkUtil.default.verifyConsistency();
-            console.log('指纹一致性:', isConsistent);
 
         } catch (error) {
             console.error('指纹生成失败:', error);
